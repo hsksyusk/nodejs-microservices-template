@@ -3,7 +3,14 @@
 {
 	"name": "Node.js",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+	// "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.yml"
+  ],
+  "service": "settings-api",
+  // "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/app",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
@@ -17,7 +24,8 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4001, 4002, 4003, 4280],
+	// "forwardPorts": [4001, 4002, 4003, 4280],
+  "forwardPorts": [4001],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "npm i -g npm@latest pino-pretty fuzz-run && npm install && docker pull node:18-alpine",
