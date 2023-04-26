@@ -6,8 +6,8 @@ services:
       dockerfile: ./packages/settings-api/Dockerfile
     #ports:
     #  - "4001:4001"
-    volumes:
-      - ".:/app"
+    #volumes:
+    #  - ".:/workspaces"
     network_mode: service:dice-api
 
   dice-api:
